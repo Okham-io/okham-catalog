@@ -9,7 +9,7 @@ This is a minimal template for designing an **OKHAM application** as a runtime-a
 
 ## Layout
 
-- `manifest/` — app-level manifest (informative)
+- `manifest/` — app-level manifest (informative, JSON)
 - `contracts/` — normative contract artifacts (canonical JSON)
   - `otc/types/`
   - `oec/events/`

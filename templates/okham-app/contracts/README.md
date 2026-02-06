@@ -4,7 +4,7 @@ This directory contains the **normative OKHAM contract artifacts** for this appl
 
 Policy (template)
 - Canonical format: **JSON** (`*.json`)
-- IDs should be stable and start with the app `namespace` from `manifest/app.yaml`.
+- IDs should be stable and start with the app `namespace` from `manifest/app.json`.
 
 Structure
 - `otc/types/` — data types (OTC)
