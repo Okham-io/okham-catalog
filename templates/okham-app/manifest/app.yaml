@@ -1,0 +1,17 @@
+id: app.example
+version: 0.1.0
+name: Example OKHAM App
+summary: Minimal OKHAM app package template
+
+# Informative: declare goals and boundaries here.
+goals:
+  - Describe the application as contracts (meaning) not implementation.
+non_goals:
+  - Specify runtime details (cloud, transport, languages).
+
+actors:
+  - id: user
+    description: End user
+
+notes:
+  - Runtime/tech bindings belong in bindings/ or deploy/.
