@@ -1,4 +1,6 @@
 {
+  "$schema": "https://okham.org/schemas/oap/0.1.0/schema.json",
+
   "id": "app.example",
   "version": "0.1.0",
   "name": "Example OKHAM App",
