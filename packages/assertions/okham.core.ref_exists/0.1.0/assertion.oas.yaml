@@ -1,0 +1,39 @@
+oas: 0.1.0
+assertionId: okham.core.ref_exists
+version: 0.1.0
+name: Reference exists
+description: >
+  Fails if the referenced id(s) found at `params.path` do not exist in the reference registry.
+  The registry is tool-defined (e.g., built from ids in the current target + canonical type ids).
+
+olr:
+  assert: ref_exists
+
+paramsSchema:
+  type: object
+  additionalProperties: false
+  required: [path]
+  properties:
+    path:
+      type: string
+      description: JSON Pointer selecting one or many reference values (wildcards allowed by tool).
+    registry:
+      type: string
+      description: Registry namespace name (tool-defined).
+
+ovr:
+  jsonPointerRule: Use params.path (or derived pointer for wildcard matches).
+  evidenceRule: Use the missing reference value.
+
+examples:
+  - title: Ensure OEC payload types exist
+    rule:
+      ruleId: OEC-REF-001
+      severity: error
+      scope: oec
+      selector: { globs: ["events/**/*.yaml"], documentKind: event }
+      assert: ref_exists
+      params:
+        path: "/payload/type"
+        registry: "otc.types"
+      message: OEC payload type must exist in OTC

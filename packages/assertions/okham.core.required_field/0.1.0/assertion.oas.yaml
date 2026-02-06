@@ -1,0 +1,43 @@
+oas: 0.1.0
+assertionId: okham.core.required_field
+version: 0.1.0
+name: Required field
+description: >
+  Fails if the JSON Pointer in `params.path` does not exist in the document.
+  If `params.alternatePath` is provided, the assertion passes if either path exists.
+
+olr:
+  assert: required_field
+
+paramsSchema:
+  type: object
+  additionalProperties: false
+  required: [path]
+  properties:
+    path:
+      type: string
+      description: JSON Pointer to required location.
+    alternatePath:
+      type: string
+      description: Alternate JSON Pointer accepted as a substitute.
+    requireAll:
+      type: boolean
+      description: If true, require all matches for wildcard pointers.
+    allowRootTarget:
+      type: boolean
+      description: If true, allow the required field at root or within flow steps (tool-defined).
+
+ovr:
+  jsonPointerRule: Use the failing pointer (params.path or derived pointer when wildcard).
+  evidenceRule: Use the value found (if any) or null if missing.
+
+examples:
+  - title: Require id
+    rule:
+      ruleId: GLOBAL-001
+      severity: error
+      scope: global
+      selector: { globs: ["**/*.{yaml,yml,json}"] }
+      assert: required_field
+      params: { path: "/id" }
+      message: Document must declare id

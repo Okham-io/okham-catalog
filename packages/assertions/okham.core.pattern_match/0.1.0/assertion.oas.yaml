@@ -1,0 +1,51 @@
+oas: 0.1.0
+assertionId: okham.core.pattern_match
+version: 0.1.0
+name: Pattern match
+description: >
+  Checks that the stringified value at `params.path` matches (or does not match) a regex pattern.
+  This assertion supports conditional application via `whenPath`+`whenPattern`.
+
+olr:
+  assert: pattern_match
+
+paramsSchema:
+  type: object
+  additionalProperties: false
+  required: [path]
+  properties:
+    path:
+      type: string
+      description: JSON Pointer to the value being checked.
+    pattern:
+      type: string
+      description: Regex pattern that MUST match.
+    disallowMatch:
+      type: string
+      description: Regex pattern that MUST NOT match.
+    expected:
+      type: string
+      description: Exact expected value (string compare).
+    whenPath:
+      type: string
+      description: JSON Pointer to a value used to gate this assertion.
+    whenPattern:
+      type: string
+      description: Regex pattern applied to the value at whenPath.
+
+ovr:
+  jsonPointerRule: Use params.path.
+  evidenceRule: Use the value found at params.path.
+
+examples:
+  - title: Disallow request DTO in event payload type
+    rule:
+      ruleId: OEC-SEM-001
+      severity: warn
+      scope: oec
+      selector: { globs: ["events/**/*.{yaml,yml,json}"] }
+      assert: pattern_match
+      params:
+        path: "/payload/type"
+        disallowMatch: "(?i)(request$|-request$|_request$)"
+      message: Event payloads should not reference request DTO types

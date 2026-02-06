@@ -1,0 +1,33 @@
+oas: 0.1.0
+assertionId: okham.core.unique_field
+version: 0.1.0
+name: Unique field
+description: >
+  Fails if two or more documents selected by the ruleset contain the same value at `params.path`.
+
+olr:
+  assert: unique_field
+
+paramsSchema:
+  type: object
+  additionalProperties: false
+  required: [path]
+  properties:
+    path:
+      type: string
+      description: JSON Pointer to the value that must be unique across selected documents.
+
+ovr:
+  jsonPointerRule: Use params.path.
+  evidenceRule: Use the duplicated value.
+
+examples:
+  - title: Unique id
+    rule:
+      ruleId: GLOBAL-UNIQ-001
+      severity: error
+      scope: global
+      selector: { globs: ["**/*.{yaml,yml,json}"] }
+      assert: unique_field
+      params: { path: "/id" }
+      message: Document ids must be unique
