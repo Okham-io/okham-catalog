@@ -1,0 +1,103 @@
+rulesetId: okham.core.canonical-types
+version: 0.1.0
+description: Enforces use of okham.* canonical types and semantic descriptions
+rules:
+  - ruleId: META-DESC-001
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "app/**/*.{yaml,yml,json}"
+        - "docs/**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/description"
+    message: Artifacts must declare a description
+    suggestedFix: Add a description to the artifact
+  - ruleId: OTC-DESC-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "docs/**/otc/**/*.yaml"
+        - "app/**/types/**/*.yaml"
+    assert: required_field
+    params:
+      path: "/fields/*/description"
+      requireAll: true
+    message: OTC fields must declare descriptions
+    suggestedFix: Add descriptions to every field
+  - ruleId: OTC-CANON-ERR-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "app/**/types/**/*.yaml"
+    assert: pattern_match
+    params:
+      path: "/id"
+      disallowMatch: "^(?!okham\\.).*(error|failure|problem|exception).*$"
+    message: Canonical error type must be okham.error
+    suggestedFix: Use okham.error instead of defining a local error type
+  - ruleId: OTC-CANON-STAT-001
+    severity: warn
+    scope: otc
+    selector:
+      globs:
+        - "app/**/types/**/*.yaml"
+    assert: pattern_match
+    params:
+      path: "/id"
+      disallowMatch: "^(?!okham\\.).*(status|result|responsemeta).*$"
+    message: Canonical status/result type should be okham.status or okham.result
+    suggestedFix: Use okham.status or okham.result instead of a local type
+  - ruleId: OTC-CANON-POL-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "app/**/types/**/*.yaml"
+    assert: pattern_match
+    params:
+      path: "/id"
+      disallowMatch: "^(?!okham\\.).*policy.*(decision|denied|allowed).*$"
+    message: Canonical policy decision type must be okham.policy.decision
+    suggestedFix: Use okham.policy.decision instead of defining a local policy decision type
+  - ruleId: OTC-CANON-TRACE-001
+    severity: warn
+    scope: otc
+    selector:
+      globs:
+        - "app/**/types/**/*.yaml"
+    assert: pattern_match
+    params:
+      path: "/id"
+      disallowMatch: "^(?!okham\\.).*(trace|correlation|causation).*$"
+    message: Canonical trace type should be okham.trace
+    suggestedFix: Use okham.trace instead of defining a local trace type
+  - ruleId: OTC-CANON-PAGE-001
+    severity: warn
+    scope: otc
+    selector:
+      globs:
+        - "app/**/types/**/*.yaml"
+    assert: pattern_match
+    params:
+      path: "/id"
+      disallowMatch: "^(?!okham\\.).*(page|pagination|listmeta|cursor).*$"
+    message: Canonical pagination type should be okham.pagination or okham.list.meta
+    suggestedFix: Use okham.pagination or okham.list.meta instead of defining a local pagination type
+  - ruleId: OEC-POLICY-001
+    severity: error
+    scope: oec
+    selector:
+      globs:
+        - "app/**/events/**/*.yaml"
+    assert: pattern_match
+    params:
+      whenPath: "/id"
+      whenPattern: "\\.policy\\.denied$"
+      path: "/payload/type"
+      expected: "https://okham.org/types/okham.policy.decision/1.0.0"
+    message: Policy denied events must use canonical policy decision payload type
+    suggestedFix: Set payload.type to https://okham.org/types/okham.policy.decision/1.0.0

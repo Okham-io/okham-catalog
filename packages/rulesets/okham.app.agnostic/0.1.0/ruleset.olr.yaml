@@ -1,0 +1,30 @@
+rulesetId: okham.app.agnostic
+version: 0.1.0
+description: Guardrails to keep OKHAM app contracts runtime-agnostic.
+rules:
+  - ruleId: AGNOSTIC-001
+    severity: error
+    scope: okham-app
+    selector:
+      globs:
+        - "contracts/**/*.{json,yaml,yml}"
+    assert: no_tech_leak
+    params:
+      allowGlobs:
+        - "bindings/**"
+        - "deploy/**"
+        - "infra/**"
+      terms:
+        - "cloudflare"
+        - "wrangler"
+        - "durable object"
+        - "workers"
+        - "nats"
+        - "jetstream"
+        - "kafka"
+        - "grpc"
+        - "goroutine"
+        - "http handler"
+        - "dockerfile"
+    message: "Runtime/tech-specific term detected in a runtime-agnostic contract artifact"
+    suggestedFix: "Move runtime concerns into bindings/ or deploy/ (non-normative), or rephrase the contract to be implementation-independent."

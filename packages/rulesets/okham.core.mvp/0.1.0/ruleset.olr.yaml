@@ -1,0 +1,159 @@
+rulesetId: okham.core.mvp
+version: 0.1.0
+description: MVP lint rules for OKHAM standards
+rules:
+  - ruleId: GLOBAL-001
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "testdata/**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/id"
+    message: Document must declare id
+    suggestedFix: Add an id field to the document
+  - ruleId: GLOBAL-002
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "testdata/**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/version"
+    message: Document must declare version
+    suggestedFix: Add a version field to the document
+  - ruleId: OTC-REF-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "testdata/otc-*.yaml"
+      documentKind: type
+    assert: ref_exists
+    params:
+      path: "/fields/*/type"
+      registry: "otc.types"
+    message: Referenced OTC type ids must exist
+    suggestedFix: Ensure the referenced OTC type id exists
+  - ruleId: OEC-REF-001
+    severity: error
+    scope: oec
+    selector:
+      globs:
+        - "testdata/oec-*.yaml"
+      documentKind: event
+    assert: ref_exists
+    params:
+      path: "/payload/type"
+      registry: "otc.types"
+    message: OEC payload type must exist in OTC
+    suggestedFix: Ensure payload.type references an OTC type
+  - ruleId: OPC-REF-001
+    severity: error
+    scope: opc
+    selector:
+      globs:
+        - "testdata/opc-*.yaml"
+      documentKind: policy
+    assert: ref_exists
+    params:
+      path: "/target/{event,interaction,function}"
+      registry: "okham.ids"
+    message: Policy references must exist
+    suggestedFix: Ensure target references existing ids
+  - ruleId: OUCC-REF-001
+    severity: warn
+    scope: oucc
+    selector:
+      globs:
+        - "testdata/oucc-*.yaml"
+      documentKind: component
+    assert: required_field
+    params:
+      path: "/props"
+      alternatePath: "/slots"
+    message: Component must declare at least one prop or slot
+    suggestedFix: Declare props or slots for the component
+  - ruleId: OEC-COMP-001
+    severity: warn
+    scope: oec
+    selector:
+      globs:
+        - "testdata/oec-*.yaml"
+      documentKind: event
+    assert: compatibility_additive
+    params:
+      path: "/payload/data"
+      idPath: "/id"
+      versionPath: "/version"
+    message: Event changes must be additive unless major bump
+    suggestedFix: Only add optional fields for minor versions or bump major
+  - ruleId: META-DESC-001
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "types/**/*.{yaml,yml,json}"
+        - "events/**/*.{yaml,yml,json}"
+        - "policies/**/*.{yaml,yml,json}"
+        - "flows/**/*.{yaml,yml,json}"
+        - "components/**/*.{yaml,yml,json}"
+        - "accessibility/**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/description"
+    message: Artifacts must declare a description
+    suggestedFix: Add a description to the artifact
+  - ruleId: OUCC-DESC-001
+    severity: error
+    scope: oucc
+    selector:
+      globs:
+        - "components/**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/props/*/description"
+      alternatePath: "/slots/*/description"
+      requireAll: true
+    message: OUCC props and slots must declare descriptions
+    suggestedFix: Add descriptions to props and slots
+  - ruleId: OEC-SEM-001
+    severity: warn
+    scope: oec
+    selector:
+      globs:
+        - "events/**/*.{yaml,yml,json}"
+    assert: pattern_match
+    params:
+      path: "/payload/type"
+      disallowMatch: "(?i)(request$|-request$|_request$)"
+    message: Event payloads should not reference request DTO types
+    suggestedFix: Use a fact payload type for the event
+  - ruleId: OEC-POLICY-001
+    severity: error
+    scope: oec
+    selector:
+      globs:
+        - "events/**/*.{yaml,yml,json}"
+    assert: pattern_match
+    params:
+      whenPath: "/id"
+      whenPattern: "\\.policy\\.denied$"
+      path: "/payload/type"
+      expected: "https://okham.org/types/okham.policy.decision/1.0.0"
+    message: Policy denied events must use canonical policy decision payload type
+    suggestedFix: Set payload.type to https://okham.org/types/okham.policy.decision/1.0.0
+  - ruleId: OBC-BIND-001
+    severity: error
+    scope: obc
+    selector:
+      globs:
+        - "flows/**/*.{json,yaml,yml}"
+    assert: required_field
+    params:
+      path: "/policyBindings"
+      allowRootTarget: true
+    message: Flows must declare policyBindings for policies
+    suggestedFix: Add policyBindings to flow steps or flow root
