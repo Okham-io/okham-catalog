@@ -1,0 +1,19 @@
+{
+  "id": "type.app.example.todo-item",
+  "version": "0.1.0",
+  "description": "Example type: a todo item.",
+  "$schema": "https://okham.org/schemas/otc/0.1.0/schema.json",
+  "kind": "type",
+  "fields": [
+    {
+      "id": "id",
+      "type": "https://okham.org/types/okham.id/1.0.0",
+      "description": "Stable identifier for the item"
+    },
+    {
+      "id": "title",
+      "type": "https://okham.org/types/okham.slug/1.0.0",
+      "description": "Short title"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "intent.app.example.todo-item.create",
+  "version": "0.1.0",
+  "description": "Example intent: create a todo item.",
+  "$schema": "https://okham.org/schemas/oic/0.1.0/schema.json",
+  "kind": "intent",
+  "expects": {
+    "events": ["event.app.example.todo-item.created"]
+  }
+}

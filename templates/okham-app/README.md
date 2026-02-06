@@ -10,14 +10,14 @@ This is a minimal template for designing an **OKHAM application** as a runtime-a
 ## Layout
 
 - `manifest/` — app-level manifest (informative)
-- `contracts/` — normative contract artifacts
-  - `types/` (OTC)
-  - `events/` (OEC)
-  - `intents/` (OIC)
-  - `policies/` (OPC)
-  - `ui/` (OUCC)
-  - `navigation/` (ONC)
-  - `capabilities/` (OCC/OFR)
+- `contracts/` — normative contract artifacts (canonical JSON)
+  - `otc/types/`
+  - `oec/events/`
+  - `oic/intents/`
+  - `opc/policies/`
+  - `oucc/ui/`
+  - `onc/navigation/`
+  - `occ/capabilities/`
 - `examples/` — informative examples
 - `bindings/` — runtime mappings (informative)
 - `deploy/` — deployment artifacts (mechanical)

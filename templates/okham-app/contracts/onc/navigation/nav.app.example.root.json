@@ -1,0 +1,8 @@
+{
+  "id": "nav.app.example.root",
+  "version": "0.1.0",
+  "description": "Example navigation root.",
+  "$schema": "https://okham.org/schemas/onc/0.2.0/schema.json",
+  "kind": "navigation",
+  "routes": []
+}

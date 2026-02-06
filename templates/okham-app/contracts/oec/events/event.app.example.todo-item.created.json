@@ -1,0 +1,14 @@
+{
+  "id": "event.app.example.todo-item.created",
+  "version": "0.1.0",
+  "description": "Example event: a todo item was created.",
+  "$schema": "https://okham.org/schemas/oec/0.1.0/schema.json",
+  "kind": "event",
+  "payload": {
+    "type": "type.app.example.todo-item",
+    "data": {
+      "id": "example",
+      "title": "demo"
+    }
+  }
+}

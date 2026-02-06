@@ -1,0 +1,11 @@
+{
+  "id": "policy.app.example.todo-item.owner-only",
+  "version": "0.1.0",
+  "description": "Example policy: only the owner can modify a todo item.",
+  "$schema": "https://okham.org/schemas/opc/0.1.0/schema.json",
+  "kind": "policy",
+  "target": {
+    "interaction": "intent.app.example.todo-item.create"
+  },
+  "rules": []
+}
