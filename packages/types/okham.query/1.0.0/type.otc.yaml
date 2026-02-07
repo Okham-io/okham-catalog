@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.query"
+name: "Query"
+description: "Canonical query definition with filters and sort order."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "filters"
+    type: "array"
+    required: false
+    description: "Filter expressions applied to a query."
+  - name: "sort"
+    type: "array"
+    required: false
+    description: "Sort directives applied to the query."
+  - name: "pagination"
+    type: "okham.pagination"
+    required: false
+    description: "Pagination parameters for the query."

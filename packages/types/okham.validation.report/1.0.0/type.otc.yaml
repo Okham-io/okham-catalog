@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.validation.report"
+name: "Validation Report"
+description: "Collection of validation issues with summary counts."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "issues"
+    type: "array"
+    required: true
+    description: "List of validation issues."
+  - name: "errorCount"
+    type: "integer"
+    required: false
+    description: "Number of error-level issues."
+  - name: "warningCount"
+    type: "integer"
+    required: false
+    description: "Number of warning-level issues."

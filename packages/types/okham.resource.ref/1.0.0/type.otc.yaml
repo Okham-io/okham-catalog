@@ -1,0 +1,15 @@
+otc: "0.2.0"
+id: "okham.resource.ref"
+name: "Resource Reference"
+description: "Reference to a resource by identifier and type."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "resourceId"
+    type: "string"
+    required: true
+    description: "Identifier of the resource."
+  - name: "resourceType"
+    type: "string"
+    required: false
+    description: "Type or category of the resource."

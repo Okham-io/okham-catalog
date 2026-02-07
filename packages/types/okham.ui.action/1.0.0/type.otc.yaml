@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.ui.action"
+name: "UI Action"
+description: "Action metadata for user interface interactions."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "action"
+    type: "string"
+    required: true
+    description: "Action token representing a UI interaction."
+  - name: "label"
+    type: "string"
+    required: false
+    description: "User-visible label for the action."
+  - name: "intent"
+    type: "okham.ui.intent"
+    required: false
+    description: "Intent associated with the action."

@@ -1,0 +1,11 @@
+otc: "0.2.0"
+id: "okham.correlation"
+name: "Correlation"
+description: "Correlation identifiers used to group related actions."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "correlationId"
+    type: "string"
+    required: true
+    description: "Identifier linking related operations."

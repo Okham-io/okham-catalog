@@ -1,0 +1,15 @@
+otc: "0.2.0"
+id: "okham.policy.constraint"
+name: "Policy Constraint"
+description: "Constraint expression associated with a policy decision."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "expression"
+    type: "string"
+    required: true
+    description: "Constraint expression applied to a decision."
+  - name: "message"
+    type: "string"
+    required: false
+    description: "Human-readable description of the constraint."

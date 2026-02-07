@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.trace"
+name: "Trace"
+description: "Canonical trace metadata for correlating distributed activity."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "traceId"
+    type: "string"
+    required: true
+    description: "Primary trace identifier for the distributed operation."
+  - name: "spanId"
+    type: "string"
+    required: false
+    description: "Span identifier for a specific operation segment."
+  - name: "correlationId"
+    type: "string"
+    required: false
+    description: "Correlation identifier shared across related actions."

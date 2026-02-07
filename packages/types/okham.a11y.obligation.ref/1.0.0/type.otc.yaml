@@ -1,0 +1,15 @@
+otc: "0.2.0"
+id: "okham.a11y.obligation.ref"
+name: "Accessibility Obligation Reference"
+description: "Reference to an accessibility obligation entry."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "obligationId"
+    type: "string"
+    required: true
+    description: "Identifier for the accessibility obligation."
+  - name: "standard"
+    type: "string"
+    required: false
+    description: "Accessibility standard applied to the obligation."

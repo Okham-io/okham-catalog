@@ -1,0 +1,11 @@
+otc: "0.2.0"
+id: "okham.locale"
+name: "Locale"
+description: "Locale identifier for language and regional formatting."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "tag"
+    type: "string"
+    required: true
+    description: "BCP 47 locale tag such as en-US."

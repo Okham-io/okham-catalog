@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.response.context"
+name: "Response Context"
+description: "Contextual metadata attached to a response."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "requestId"
+    type: "string"
+    required: true
+    description: "Identifier of the related request."
+  - name: "respondedAt"
+    type: "string"
+    required: false
+    description: "Timestamp when the response was produced."
+  - name: "trace"
+    type: "okham.trace"
+    required: false
+    description: "Trace metadata for the response."
