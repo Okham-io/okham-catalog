@@ -1,0 +1,11 @@
+otc: "0.2.0"
+id: "okham.conformance.fixture.deprecated_without_reason"
+name: "Deprecated without reason"
+description: "Fixture that should fail OTC-DEP-001"
+version: "1.0.0"
+status: "deprecated"
+fields:
+  - name: "value"
+    type: "string"
+    required: true
+    description: "Value"

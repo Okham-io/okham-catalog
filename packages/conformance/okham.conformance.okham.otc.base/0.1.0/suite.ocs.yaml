@@ -1,0 +1,19 @@
+ocs: "0.1.0"
+suiteId: "okham.conformance.okham.otc.base"
+status: "draft"
+description: "Conformance cases for the okham.otc.base OLR ruleset (OTC)."
+
+target:
+  kind: "olr.ruleset"
+  id: "okham.otc.base"
+  version: "0.1.0"
+
+cases:
+  # Pass: the current catalog types must pass okham.otc.base
+  - path: "packages/types/okham.core.id/1.0.0/type.otc.yaml"
+    expect: "pass"
+
+  # Fail: deprecated without deprecatedReason
+  - path: "conformance-fixtures/fail/OTC-DEP-001/missing-deprecatedReason.yaml"
+    expect: "fail"
+    expectRuleIds: ["OTC-DEP-001"]

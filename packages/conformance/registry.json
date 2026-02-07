@@ -1,0 +1,14 @@
+{
+  "kind": "okham.catalog.conformance",
+  "version": "0.1.0",
+  "suites": [
+    {
+      "suiteId": "okham.conformance.okham.otc.base",
+      "versions": ["0.1.0"],
+      "recommended": true,
+      "tags": ["otc", "conformance"],
+      "path": "packages/conformance/okham.conformance.okham.otc.base/0.1.0/suite.ocs.yaml",
+      "schema": "https://okham.org/schemas/ocs/0.1.0/schema.json"
+    }
+  ]
+}
