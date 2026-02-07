@@ -1,4 +1,4 @@
-otc: "0.2.0"
+﻿otc: "0.2.0"
 id: "okham.request.context"
 name: "Request Context"
 description: "Contextual metadata attached to a request."
@@ -10,10 +10,10 @@ fields:
     required: true
     description: "Identifier of the request."
   - name: "actor"
-    type: "okham.actor"
+    type: "okham.core.actor"
     required: false
     description: "Actor associated with the request."
   - name: "trace"
-    type: "okham.trace"
+    type: "okham.trace.context"
     required: false
     description: "Trace metadata for the request."

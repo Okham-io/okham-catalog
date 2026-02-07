@@ -1,0 +1,11 @@
+{
+  "name": "okham-catalog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:otc": "node ./scripts/lint-otc.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.8.1"
+  }
+}

@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.actor"
+﻿otc: "0.2.0"
+id: "okham.core.actor"
 name: "Actor"
 description: "Canonical actor reference for a person, system, or service."
 version: "1.0.0"

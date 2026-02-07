@@ -39,18 +39,6 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
-                      "typeId":  "okham.actor",
-                      "versions":  [
-                                       "1.0.0"
-                                   ],
-                      "recommended":  true,
-                      "tags":  [
-                                   "core"
-                               ],
-                      "path":  "packages/types/okham.actor/1.0.0/type.otc.yaml",
-                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
-                  },
-                  {
                       "typeId":  "okham.auth.context",
                       "versions":  [
                                        "1.0.0"
@@ -75,7 +63,7 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
-                      "typeId":  "okham.causation",
+                      "typeId":  "okham.core.actor",
                       "versions":  [
                                        "1.0.0"
                                    ],
@@ -83,7 +71,7 @@
                       "tags":  [
                                    "core"
                                ],
-                      "path":  "packages/types/okham.causation/1.0.0/type.otc.yaml",
+                      "path":  "packages/types/okham.core.actor/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
@@ -171,6 +159,18 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
+                      "typeId":  "okham.core.slug",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  true,
+                      "tags":  [
+                                   "core"
+                               ],
+                      "path":  "packages/types/okham.core.slug/1.0.0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
                       "typeId":  "okham.core.timezone",
                       "versions":  [
                                        "1.0.0"
@@ -216,18 +216,6 @@
                                    "core"
                                ],
                       "path":  "packages/types/okham.core.version.semver/1.0.0/type.otc.yaml",
-                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
-                  },
-                  {
-                      "typeId":  "okham.correlation",
-                      "versions":  [
-                                       "1.0.0"
-                                   ],
-                      "recommended":  true,
-                      "tags":  [
-                                   "core"
-                               ],
-                      "path":  "packages/types/okham.correlation/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
@@ -664,7 +652,7 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
-                      "typeId":  "okham.slug",
+                      "typeId":  "okham.trace.causation",
                       "versions":  [
                                        "1.0.0"
                                    ],
@@ -672,11 +660,11 @@
                       "tags":  [
                                    "core"
                                ],
-                      "path":  "packages/types/okham.slug/1.0.0/type.otc.yaml",
+                      "path":  "packages/types/okham.trace.causation/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
-                      "typeId":  "okham.trace",
+                      "typeId":  "okham.trace.context",
                       "versions":  [
                                        "1.0.0"
                                    ],
@@ -684,7 +672,19 @@
                       "tags":  [
                                    "core"
                                ],
-                      "path":  "packages/types/okham.trace/1.0.0/type.otc.yaml",
+                      "path":  "packages/types/okham.trace.context/1.0.0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
+                      "typeId":  "okham.trace.correlation",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  true,
+                      "tags":  [
+                                   "core"
+                               ],
+                      "path":  "packages/types/okham.trace.correlation/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {

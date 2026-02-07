@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.causation"
+﻿otc: "0.2.0"
+id: "okham.trace.causation"
 name: "Causation"
 description: "Causation identifiers indicating the triggering action."
 version: "1.0.0"

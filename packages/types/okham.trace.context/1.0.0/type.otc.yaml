@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.trace"
+﻿otc: "0.2.0"
+id: "okham.trace.context"
 name: "Trace"
 description: "Canonical trace metadata for correlating distributed activity."
 version: "1.0.0"

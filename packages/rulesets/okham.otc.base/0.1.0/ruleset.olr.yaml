@@ -41,7 +41,7 @@ rules:
     params:
       path: "/otc"
       expected: "0.2.0"
-    message: OTC types must declare otc: "0.2.0" (current canonical)
+    message: "OTC types must declare otc: \"0.2.0\" (current canonical)"
 
   - ruleId: OTC-REQ-002
     severity: error

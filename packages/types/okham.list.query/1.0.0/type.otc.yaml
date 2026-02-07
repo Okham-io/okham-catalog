@@ -14,6 +14,6 @@ fields:
     required: false
     description: "Sort directives applied to the query."
   - name: "pagination"
-    type: "okham.pagination"
+    type: "okham.list.pagination"
     required: false
     description: "Pagination parameters for the query."
