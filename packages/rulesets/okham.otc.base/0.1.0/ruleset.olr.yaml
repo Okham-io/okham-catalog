@@ -15,6 +15,34 @@ rules:
       path: "/otc"
     message: OTC type must declare otc version
 
+  - ruleId: OTC-OTC-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/otc"
+      pattern: "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    message: OTC version must be semantic version
+
+  - ruleId: OTC-OTC-002
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/otc"
+      expected: "0.2.0"
+    message: OTC types must declare otc: "0.2.0" (current canonical)
+
   - ruleId: OTC-REQ-002
     severity: error
     scope: otc
@@ -230,6 +258,34 @@ rules:
       path: "/fields/*/type"
       pattern: "^(string|number|integer|boolean|object|array|okham\\.[a-z0-9]+(\\.[a-z0-9]+)+)$"
     message: OTC field type must be a primitive or a namespaced okham.* type id
+
+  - ruleId: OTC-REF-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: ref_exists
+    params:
+      path: "/extends"
+      registry: "otc.types"
+    message: OTC extends type must exist in OTC registry (if provided)
+
+  - ruleId: OTC-REF-002
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: ref_exists
+    params:
+      path: "/mixins/*"
+      registry: "otc.types"
+    message: OTC mixin types must exist in OTC registry
 
   - ruleId: OTC-ID-001
     severity: error
