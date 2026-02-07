@@ -29,6 +29,7 @@ function Put-R2File {
 # 1) Registries -> KV
 Put-KVJsonFile -Key "catalog/rulesets/registry.json" -Path "packages/rulesets/registry.json"
 Put-KVJsonFile -Key "catalog/assertions/registry.json" -Path "packages/assertions/registry.json"
+Put-KVJsonFile -Key "catalog/types/registry.json" -Path "packages/types/registry.json"
 
 # 2) Latest pointers -> KV (derived)
 $rulesetsRegistry = Get-Content -Raw -Path "packages/rulesets/registry.json" | ConvertFrom-Json
@@ -45,6 +46,16 @@ $assertionsRegistry = Get-Content -Raw -Path "packages/assertions/registry.json"
 foreach ($a in $assertionsRegistry.assertions) {
   $latest = $a.versions[-1]
   $key = "catalog/assertions/$($a.assertionId)/latest.json"
+  $tmp = New-TemporaryFile
+  @{ version = $latest } | ConvertTo-Json -Depth 10 | Set-Content -Encoding UTF8 -NoNewline -Path $tmp
+  Put-KVJsonFile -Key $key -Path $tmp
+  Remove-Item $tmp
+}
+
+$typesRegistry = Get-Content -Raw -Path "packages/types/registry.json" | ConvertFrom-Json
+foreach ($t in $typesRegistry.types) {
+  $latest = $t.versions[-1]
+  $key = "catalog/types/$($t.typeId)/latest.json"
   $tmp = New-TemporaryFile
   @{ version = $latest } | ConvertTo-Json -Depth 10 | Set-Content -Encoding UTF8 -NoNewline -Path $tmp
   Put-KVJsonFile -Key $key -Path $tmp
@@ -70,6 +81,16 @@ foreach ($a in $assertionsRegistry.assertions) {
   }
 }
 
+foreach ($t in $typesRegistry.types) {
+  foreach ($v in $t.versions) {
+    $src = "packages/types/$($t.typeId)/$v/type.otc.yaml"
+    if (!(Test-Path $src)) { throw "Missing file: $src" }
+    $dst = "catalog/types/$($t.typeId)/$v/type.otc.yaml"
+    Put-R2File -Key $dst -Path $src -ContentType "text/yaml; charset=utf-8"
+  }
+}
+
 Write-Host "Done. Try:" 
-Write-Host "  https://okham.io/catalog/rulesets/registry.json"
-Write-Host "  https://okham.io/catalog/rulesets/okham.core.mvp/latest/ruleset.olr.yaml"
+Write-Host "  https://catalog.okham.io/rulesets/registry.json"
+Write-Host "  https://catalog.okham.io/types/registry.json"
+Write-Host "  https://catalog.okham.io/rulesets/okham.core.mvp/latest/ruleset.olr.yaml"

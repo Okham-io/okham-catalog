@@ -1,0 +1,138 @@
+rulesetId: okham.otc.base
+version: 0.1.0
+description: Strict baseline lint rules for OTC type definitions
+rules:
+  - ruleId: OTC-REQ-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/otc"
+    message: OTC type must declare otc version
+
+  - ruleId: OTC-REQ-002
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/id"
+    message: OTC type must declare id
+
+  - ruleId: OTC-REQ-003
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/name"
+    message: OTC type must declare name
+
+  - ruleId: OTC-REQ-004
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/description"
+    message: OTC type must declare description
+
+  - ruleId: OTC-REQ-005
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/fields"
+    message: OTC type must declare fields
+
+  - ruleId: OTC-FIELD-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/fields/*/name"
+      requireAll: true
+    message: Each OTC field must declare name
+
+  - ruleId: OTC-FIELD-002
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/fields/*/type"
+      requireAll: true
+    message: Each OTC field must declare type
+
+  - ruleId: OTC-FIELD-003
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/fields/*/description"
+      requireAll: true
+    message: Each OTC field must declare description
+
+  - ruleId: OTC-ID-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/id"
+      pattern: "^[a-z0-9]+(\\.[a-z0-9]+)+$"
+    message: OTC type ids must use dotted lowercase format
+
+  - ruleId: OTC-VERSION-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/version"
+      pattern: "^\\d+\\.\\d+\\.\\d+$"
+    message: OTC type version must be semver (x.y.z)

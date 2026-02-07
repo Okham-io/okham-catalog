@@ -1,0 +1,31 @@
+otc: "0.2.0"
+id: "okham.policy.decision"
+name: "Policy Decision"
+description: "Outcome of a policy evaluation with decision and target context."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "policyId"
+    type: "string"
+    required: true
+    description: "Identifier of the policy that produced the decision."
+  - name: "decision"
+    type: "string"
+    required: true
+    description: "Decision outcome token such as allow or deny."
+  - name: "reasonCode"
+    type: "string"
+    required: false
+    description: "Machine-readable reason for the decision."
+  - name: "message"
+    type: "string"
+    required: false
+    description: "Human-readable explanation for the decision."
+  - name: "correlationId"
+    type: "string"
+    required: false
+    description: "Correlation identifier for the evaluation context."
+  - name: "target"
+    type: "string"
+    required: false
+    description: "Identifier of the evaluated target (resource or action)."

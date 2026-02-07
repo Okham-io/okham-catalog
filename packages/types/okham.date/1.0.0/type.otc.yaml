@@ -1,0 +1,11 @@
+otc: "0.2.0"
+id: "okham.date"
+name: "Date"
+description: "ISO 8601 calendar date."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "value"
+    type: "string"
+    required: true
+    description: "Date in ISO 8601 format (YYYY-MM-DD)."

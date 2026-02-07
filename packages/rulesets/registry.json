@@ -33,6 +33,14 @@
       "tags": ["core"],
       "path": "packages/rulesets/okham.core.base/0.1.0/ruleset.olr.yaml",
       "schema": "https://okham.org/schemas/olr/0.1.0/schema.json"
+    },
+    {
+      "rulesetId": "okham.otc.base",
+      "versions": ["0.1.0"],
+      "recommended": true,
+      "tags": ["otc", "types"],
+      "path": "packages/rulesets/okham.otc.base/0.1.0/ruleset.olr.yaml",
+      "schema": "https://okham.org/schemas/olr/0.1.0/schema.json"
     }
   ]
 }

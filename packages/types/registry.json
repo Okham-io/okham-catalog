@@ -1,0 +1,70 @@
+{
+  "kind": "okham.catalog.types",
+  "version": "0.1.0",
+  "types": [
+    {
+      "typeId": "okham.id",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core"],
+      "path": "packages/types/okham.id/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    },
+    {
+      "typeId": "okham.version.semver",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core"],
+      "path": "packages/types/okham.version.semver/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    },
+    {
+      "typeId": "okham.uuid",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core"],
+      "path": "packages/types/okham.uuid/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    },
+    {
+      "typeId": "okham.uri",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core"],
+      "path": "packages/types/okham.uri/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    },
+    {
+      "typeId": "okham.date",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core", "time"],
+      "path": "packages/types/okham.date/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    },
+    {
+      "typeId": "okham.datetime",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core", "time"],
+      "path": "packages/types/okham.datetime/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    },
+    {
+      "typeId": "okham.error",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core"],
+      "path": "packages/types/okham.error/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    },
+    {
+      "typeId": "okham.policy.decision",
+      "versions": ["1.0.0"],
+      "recommended": true,
+      "tags": ["core", "policy"],
+      "path": "packages/types/okham.policy.decision/1.0.0/type.otc.yaml",
+      "schema": "https://okham.org/schemas/otc/0.1.0/schema.json"
+    }
+  ]
+}
