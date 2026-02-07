@@ -1,0 +1,15 @@
+﻿otc: "0.2.0"
+id: "okham.ref.policy"
+name: "Policy Reference"
+description: "Reference to a policy identifier and version."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "policyId"
+    type: "string"
+    required: true
+    description: "Identifier of the referenced policy."
+  - name: "version"
+    type: "string"
+    required: false
+    description: "Version of the referenced policy."

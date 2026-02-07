@@ -1,0 +1,15 @@
+﻿otc: "0.2.0"
+id: "okham.runtime.operation"
+name: "Operation"
+description: "Operation identifier for policy and audit contexts."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "operation"
+    type: "string"
+    required: true
+    description: "Operation token describing an action or capability."
+  - name: "intent"
+    type: "string"
+    required: false
+    description: "Optional intent describing why the operation is invoked."

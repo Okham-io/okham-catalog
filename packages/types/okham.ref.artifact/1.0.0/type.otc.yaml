@@ -1,0 +1,19 @@
+﻿otc: "0.2.0"
+id: "okham.ref.artifact"
+name: "Artifact Reference"
+description: "Reference to an artifact by path and hash."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "path"
+    type: "string"
+    required: true
+    description: "Relative path to the artifact."
+  - name: "sha256"
+    type: "string"
+    required: true
+    description: "SHA-256 hash of the artifact contents."
+  - name: "kind"
+    type: "string"
+    required: false
+    description: "Artifact kind such as file or uri."

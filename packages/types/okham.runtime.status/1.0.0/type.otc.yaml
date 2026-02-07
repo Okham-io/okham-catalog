@@ -1,0 +1,19 @@
+﻿otc: "0.2.0"
+id: "okham.runtime.status"
+name: "Status"
+description: "Canonical status payload for reporting state and state transitions."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "state"
+    type: "string"
+    required: true
+    description: "Current state value represented as a stable token."
+  - name: "reason"
+    type: "string"
+    required: false
+    description: "Explanation for the current state when applicable."
+  - name: "updatedAt"
+    type: "string"
+    required: false
+    description: "Timestamp indicating when the status last changed."

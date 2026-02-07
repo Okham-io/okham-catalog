@@ -1,0 +1,19 @@
+﻿otc: "0.2.0"
+id: "okham.runtime.warning"
+name: "Warning"
+description: "Canonical warning payload for non-blocking issues."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "code"
+    type: "string"
+    required: true
+    description: "Machine-readable warning code."
+  - name: "message"
+    type: "string"
+    required: true
+    description: "Human-readable warning message."
+  - name: "detail"
+    type: "string"
+    required: false
+    description: "Optional detail providing additional context."
