@@ -1,0 +1,23 @@
+otc: "0.2.0"
+id: "okham.conformance.suite"
+name: "Conformance Suite"
+description: "A portable conformance suite (OCS) describing test cases and expected outcomes for validating rule/schema engines."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "ocs"
+    type: "string"
+    required: true
+    description: "OCS version (semver) of the conformance suite document."
+  - name: "suiteId"
+    type: "string"
+    required: true
+    description: "Unique namespaced identifier of the suite."
+  - name: "target"
+    type: "okham.conformance.target"
+    required: true
+    description: "Target artifact under test (ruleset/assertion/schema)."
+  - name: "cases"
+    type: "array"
+    required: true
+    description: "List of conformance cases."

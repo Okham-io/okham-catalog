@@ -63,6 +63,30 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
+                      "typeId":  "okham.conformance.suite",
+                      "tags":  [
+                                   "conformance"
+                               ],
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json",
+                      "path":  "packages/types/okham.conformance.suite/1.0.0/type.otc.yaml",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  false
+                  },
+                  {
+                      "typeId":  "okham.conformance.target",
+                      "tags":  [
+                                   "conformance"
+                               ],
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json",
+                      "path":  "packages/types/okham.conformance.target/1.0.0/type.otc.yaml",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  false
+                  },
+                  {
                       "typeId":  "okham.core.actor",
                       "versions":  [
                                        "1.0.0"

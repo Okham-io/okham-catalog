@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.conformance.target"
+name: "Conformance Target"
+description: "Describes what artifact is being validated by a conformance suite."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "kind"
+    type: "string"
+    required: true
+    description: "Target kind: olr.ruleset | oas.assertion | schema"
+  - name: "id"
+    type: "string"
+    required: true
+    description: "Identifier of the artifact (e.g., okham.otc.base)."
+  - name: "version"
+    type: "string"
+    required: true
+    description: "Artifact version (semver)."
