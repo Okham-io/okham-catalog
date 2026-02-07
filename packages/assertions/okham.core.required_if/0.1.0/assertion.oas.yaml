@@ -1,0 +1,46 @@
+oas: 0.1.0
+assertionId: okham.core.required_if
+version: 0.1.0
+name: Required if
+description: >
+  Conditionally requires `params.path` when `params.whenPath` is present and matches
+  `params.whenPattern` (regex) or equals `params.whenEquals`.
+
+olr:
+  assert: required_if
+
+paramsSchema:
+  type: object
+  additionalProperties: false
+  required: [path, whenPath]
+  properties:
+    path:
+      type: string
+      description: JSON Pointer to required location.
+    whenPath:
+      type: string
+      description: JSON Pointer used to gate this assertion.
+    whenPattern:
+      type: string
+      description: Regex pattern that must match the stringified whenPath value.
+    whenEquals:
+      type: string
+      description: Exact expected string value for whenPath.
+
+ovr:
+  jsonPointerRule: Use params.path.
+  evidenceRule: Use the value at whenPath.
+
+examples:
+  - title: Require deprecatedReason if status is deprecated
+    rule:
+      ruleId: OTC-DEP-001
+      severity: error
+      scope: otc
+      selector: { globs: ["**/types/**/*.yaml"], documentKind: type }
+      assert: required_if
+      params:
+        whenPath: "/status"
+        whenEquals: "deprecated"
+        path: "/deprecatedReason"
+      message: deprecatedReason is required when status is deprecated

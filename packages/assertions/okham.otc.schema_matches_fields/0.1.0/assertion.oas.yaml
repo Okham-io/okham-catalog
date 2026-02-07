@@ -1,0 +1,49 @@
+oas: 0.1.0
+assertionId: okham.otc.schema_matches_fields
+version: 0.1.0
+name: Schema matches fields
+description: >
+  Validates consistency between OTC `fields` and the optional JSON Schema block.
+  If `params.schemaPath` is missing, the assertion passes (schema is optional).
+
+  Checks:
+  - Every field name exists under schema.properties
+  - schema.required contains exactly the field names where fields[*].required is true
+
+olr:
+  assert: schema_matches_fields
+
+paramsSchema:
+  type: object
+  additionalProperties: false
+  required: [fieldsPath, schemaPath]
+  properties:
+    fieldsPath:
+      type: string
+      description: JSON Pointer to fields array (e.g., /fields).
+    schemaPath:
+      type: string
+      description: JSON Pointer to schema object (e.g., /schema).
+    propertiesPath:
+      type: string
+      description: Pointer relative to schemaPath for properties (default: /properties).
+    requiredPath:
+      type: string
+      description: Pointer relative to schemaPath for required array (default: /required).
+
+ovr:
+  jsonPointerRule: Use derived pointer into schema for the mismatch.
+  evidenceRule: Provide the missing/extra field name.
+
+examples:
+  - title: Enforce schema-fields consistency
+    rule:
+      ruleId: OTC-SCHEMA-001
+      severity: error
+      scope: otc
+      selector: { globs: ["**/types/**/*.yaml"], documentKind: type }
+      assert: schema_matches_fields
+      params:
+        fieldsPath: "/fields"
+        schemaPath: "/schema"
+      message: schema must match fields (properties + required)

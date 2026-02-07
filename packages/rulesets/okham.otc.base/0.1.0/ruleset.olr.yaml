@@ -287,6 +287,35 @@ rules:
       registry: "otc.types"
     message: OTC mixin types must exist in OTC registry
 
+  - ruleId: OTC-DEP-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_if
+    params:
+      whenPath: "/status"
+      whenEquals: "deprecated"
+      path: "/deprecatedReason"
+    message: deprecatedReason is required when status is deprecated
+
+  - ruleId: OTC-SCHEMA-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: schema_matches_fields
+    params:
+      fieldsPath: "/fields"
+      schemaPath: "/schema"
+    message: If schema is present, it must match fields (properties + required)
+
   - ruleId: OTC-ID-001
     severity: error
     scope: otc

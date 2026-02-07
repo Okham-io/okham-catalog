@@ -1,46 +1,91 @@
-{
-  "kind": "okham.catalog.assertions",
-  "version": "0.1.0",
-  "assertions": [
-    {
-      "assertionId": "okham.core.required_field",
-      "versions": ["0.1.0"],
-      "recommended": true,
-      "tags": ["core"],
-      "path": "packages/assertions/okham.core.required_field/0.1.0/assertion.oas.yaml",
-      "schema": "https://okham.org/schemas/oas/0.1.0/schema.json"
-    },
-    {
-      "assertionId": "okham.core.pattern_match",
-      "versions": ["0.1.0"],
-      "recommended": true,
-      "tags": ["core"],
-      "path": "packages/assertions/okham.core.pattern_match/0.1.0/assertion.oas.yaml",
-      "schema": "https://okham.org/schemas/oas/0.1.0/schema.json"
-    },
-    {
-      "assertionId": "okham.core.ref_exists",
-      "versions": ["0.1.0"],
-      "recommended": true,
-      "tags": ["core"],
-      "path": "packages/assertions/okham.core.ref_exists/0.1.0/assertion.oas.yaml",
-      "schema": "https://okham.org/schemas/oas/0.1.0/schema.json"
-    },
-    {
-      "assertionId": "okham.core.unique_field",
-      "versions": ["0.1.0"],
-      "recommended": true,
-      "tags": ["core"],
-      "path": "packages/assertions/okham.core.unique_field/0.1.0/assertion.oas.yaml",
-      "schema": "https://okham.org/schemas/oas/0.1.0/schema.json"
-    },
-    {
-      "assertionId": "okham.core.compatibility_additive",
-      "versions": ["0.1.0"],
-      "recommended": false,
-      "tags": ["core", "compat"],
-      "path": "packages/assertions/okham.core.compatibility_additive/0.1.0/assertion.oas.yaml",
-      "schema": "https://okham.org/schemas/oas/0.1.0/schema.json"
-    }
-  ]
+﻿{
+    "kind":  "okham.catalog.assertions",
+    "version":  "0.1.0",
+    "assertions":  [
+                       {
+                           "assertionId":  "okham.core.compatibility_additive",
+                           "versions":  [
+                                            "0.1.0"
+                                        ],
+                           "recommended":  false,
+                           "tags":  [
+                                        "core",
+                                        "compat"
+                                    ],
+                           "path":  "packages/assertions/okham.core.compatibility_additive/0.1.0/assertion.oas.yaml",
+                           "schema":  "https://okham.org/schemas/oas/0.1.0/schema.json"
+                       },
+                       {
+                           "assertionId":  "okham.core.pattern_match",
+                           "versions":  [
+                                            "0.1.0"
+                                        ],
+                           "recommended":  true,
+                           "tags":  [
+                                        "core"
+                                    ],
+                           "path":  "packages/assertions/okham.core.pattern_match/0.1.0/assertion.oas.yaml",
+                           "schema":  "https://okham.org/schemas/oas/0.1.0/schema.json"
+                       },
+                       {
+                           "assertionId":  "okham.core.ref_exists",
+                           "versions":  [
+                                            "0.1.0"
+                                        ],
+                           "recommended":  true,
+                           "tags":  [
+                                        "core"
+                                    ],
+                           "path":  "packages/assertions/okham.core.ref_exists/0.1.0/assertion.oas.yaml",
+                           "schema":  "https://okham.org/schemas/oas/0.1.0/schema.json"
+                       },
+                       {
+                           "assertionId":  "okham.core.required_field",
+                           "versions":  [
+                                            "0.1.0"
+                                        ],
+                           "recommended":  true,
+                           "tags":  [
+                                        "core"
+                                    ],
+                           "path":  "packages/assertions/okham.core.required_field/0.1.0/assertion.oas.yaml",
+                           "schema":  "https://okham.org/schemas/oas/0.1.0/schema.json"
+                       },
+                       {
+                           "recommended":  true,
+                           "tags":  [
+                                        "core"
+                                    ],
+                           "schema":  "https://okham.org/schemas/oas/0.1.0/schema.json",
+                           "path":  "packages/assertions/okham.core.required_if/0.1.0/assertion.oas.yaml",
+                           "assertionId":  "okham.core.required_if",
+                           "versions":  [
+                                            "0.1.0"
+                                        ]
+                       },
+                       {
+                           "assertionId":  "okham.core.unique_field",
+                           "versions":  [
+                                            "0.1.0"
+                                        ],
+                           "recommended":  true,
+                           "tags":  [
+                                        "core"
+                                    ],
+                           "path":  "packages/assertions/okham.core.unique_field/0.1.0/assertion.oas.yaml",
+                           "schema":  "https://okham.org/schemas/oas/0.1.0/schema.json"
+                       },
+                       {
+                           "recommended":  true,
+                           "tags":  [
+                                        "otc"
+                                    ],
+                           "schema":  "https://okham.org/schemas/oas/0.1.0/schema.json",
+                           "path":  "packages/assertions/okham.otc.schema_matches_fields/0.1.0/assertion.oas.yaml",
+                           "assertionId":  "okham.otc.schema_matches_fields",
+                           "versions":  [
+                                            "0.1.0"
+                                        ]
+                       }
+                   ]
 }
