@@ -1,0 +1,19 @@
+﻿otc: "0.2.0"
+id: "okham.core.error.detail"
+name: "Error Detail"
+description: "Structured detail for an error including field-level context."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "field"
+    type: "string"
+    required: false
+    description: "Field or attribute associated with the error."
+  - name: "message"
+    type: "string"
+    required: true
+    description: "Human-readable detail for the error."
+  - name: "code"
+    type: "string"
+    required: false
+    description: "Optional detail code used for categorization."

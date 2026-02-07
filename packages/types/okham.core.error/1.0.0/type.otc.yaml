@@ -1,0 +1,23 @@
+﻿otc: "0.2.0"
+id: "okham.core.error"
+name: "Error"
+description: "Canonical error payload describing failures in a uniform way."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "code"
+    type: "string"
+    required: true
+    description: "Machine-readable error code for classification and routing."
+  - name: "message"
+    type: "string"
+    required: true
+    description: "Human-readable summary of the error condition."
+  - name: "detail"
+    type: "string"
+    required: false
+    description: "Optional additional context to aid troubleshooting."
+  - name: "traceId"
+    type: "string"
+    required: false
+    description: "Correlation identifier for tracing the failure across systems."
