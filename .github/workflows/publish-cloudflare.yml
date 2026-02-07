@@ -15,8 +15,7 @@ jobs:
         with:
           node-version: 22
 
-      # Wrangler v3 is stable for kv:key + r2 object commands.
-      - run: npm i -g wrangler@3.114.17
+      - run: npm i -g wrangler@4
 
       - name: Publish seed (rulesets + assertions) to R2 and KV
         shell: pwsh
