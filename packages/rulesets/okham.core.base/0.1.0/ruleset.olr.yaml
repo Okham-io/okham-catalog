@@ -1,0 +1,77 @@
+rulesetId: okham.core.base
+version: 0.1.0
+description: Core baseline lint rules for OKHAM artifacts
+rules:
+  - ruleId: CORE-ID-001
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/id"
+    message: Document must declare id
+    suggestedFix: Add an id field to the document
+
+  - ruleId: CORE-ID-002
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "**/*.{yaml,yml,json}"
+    assert: unique_field
+    params:
+      path: "/id"
+    message: Document ids must be unique
+    suggestedFix: Ensure each artifact has a unique id
+
+  - ruleId: CORE-ID-003
+    severity: warn
+    scope: global
+    selector:
+      globs:
+        - "**/*.{yaml,yml,json}"
+    assert: pattern_match
+    params:
+      path: "/id"
+      pattern: "^[a-z0-9]+(\\.[a-z0-9]+)+$"
+    message: Ids should use dotted lowercase format (e.g. okham.core.mvp)
+    suggestedFix: Rename the id to dotted lowercase
+
+  - ruleId: CORE-VERSION-001
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/version"
+    message: Document must declare version
+    suggestedFix: Add a version field to the document
+
+  - ruleId: CORE-VERSION-002
+    severity: warn
+    scope: global
+    selector:
+      globs:
+        - "**/*.{yaml,yml,json}"
+    assert: pattern_match
+    params:
+      path: "/version"
+      pattern: "^\\d+\\.\\d+\\.\\d+$"
+    message: Versions should follow semver (x.y.z)
+    suggestedFix: Use a semver version string
+
+  - ruleId: CORE-META-001
+    severity: error
+    scope: global
+    selector:
+      globs:
+        - "**/*.{yaml,yml,json}"
+    assert: required_field
+    params:
+      path: "/description"
+    message: Artifacts must declare a description
+    suggestedFix: Add a description to the artifact

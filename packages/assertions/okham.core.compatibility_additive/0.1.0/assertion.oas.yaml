@@ -1,0 +1,45 @@
+oas: 0.1.0
+assertionId: okham.core.compatibility_additive
+version: 0.1.0
+name: Compatibility (additive changes)
+description: >
+  Checks that changes to a structured object are additive-only unless a major version bump is present.
+  This assertion is tool-defined: the linter must provide a baseline to compare against.
+
+  Intended use: event payload schemas, component props, etc.
+
+olr:
+  assert: compatibility_additive
+
+paramsSchema:
+  type: object
+  additionalProperties: false
+  required: [path]
+  properties:
+    path:
+      type: string
+      description: JSON Pointer to the object subtree to compare.
+    idPath:
+      type: string
+      description: JSON Pointer to a stable id used to look up the baseline.
+    versionPath:
+      type: string
+      description: JSON Pointer to the version used for compatibility gating.
+
+ovr:
+  jsonPointerRule: Use params.path.
+  evidenceRule: Include removed/changed keys (tool-defined).
+
+examples:
+  - title: Additive-only event payload changes
+    rule:
+      ruleId: OEC-COMP-001
+      severity: warn
+      scope: oec
+      selector: { globs: ["events/**/*.{yaml,yml,json}"], documentKind: event }
+      assert: compatibility_additive
+      params:
+        path: "/payload/data"
+        idPath: "/id"
+        versionPath: "/version"
+      message: Event changes must be additive unless major bump
