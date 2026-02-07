@@ -93,6 +93,46 @@ rules:
       path: "/version"
     message: OTC type must declare version
 
+  - ruleId: OTC-REQ-008
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/status"
+    message: OTC type must declare status (draft|stable|deprecated)
+
+  - ruleId: OTC-STATUS-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/status"
+      pattern: "^(draft|stable|deprecated)$"
+    message: OTC type status must be draft|stable|deprecated
+
+  - ruleId: OTC-UNIQ-001
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: unique_field
+    params:
+      path: "/id"
+    message: OTC type ids must be unique
+
   - ruleId: OTC-FIELD-001
     severity: error
     scope: otc
