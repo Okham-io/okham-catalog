@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.package.meta"
+﻿otc: "0.2.0"
+id: "okham.pkg.meta"
 name: "Package Meta"
 description: "Metadata describing a package or module."
 version: "1.0.0"

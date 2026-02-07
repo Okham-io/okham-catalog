@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.permission"
+﻿otc: "0.2.0"
+id: "okham.iam.permission"
 name: "Permission"
 description: "Permission identifier describing an allowed action."
 version: "1.0.0"

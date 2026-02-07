@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.role"
+﻿otc: "0.2.0"
+id: "okham.iam.role"
 name: "Role"
 description: "Role identifier used for policy or access control."
 version: "1.0.0"
