@@ -12,7 +12,7 @@ function Put-KVJsonFile {
     [Parameter(Mandatory=$true)][string]$Path
   )
   Write-Host "KV PUT $Key <= $Path"
-  npx wrangler kv key put $Key --namespace-id $KvNamespaceId --path $Path | Out-Host
+  npx wrangler kv key put $Key --remote --namespace-id $KvNamespaceId --path $Path | Out-Host
 }
 
 function Put-R2File {
@@ -23,7 +23,7 @@ function Put-R2File {
   )
   $objPath = "$BucketName/$Key"
   Write-Host "R2 PUT $objPath <= $Path"
-  npx wrangler r2 object put $objPath --file $Path --content-type $ContentType | Out-Host
+  npx wrangler r2 object put $objPath --remote --file $Path --content-type $ContentType | Out-Host
 }
 
 # 1) Registries -> KV
