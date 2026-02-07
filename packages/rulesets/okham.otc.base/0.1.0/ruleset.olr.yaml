@@ -67,6 +67,32 @@ rules:
       path: "/fields"
     message: OTC type must declare fields
 
+  - ruleId: OTC-REQ-006
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/fields/0/name"
+    message: OTC type must declare at least 1 field
+
+  - ruleId: OTC-REQ-007
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/version"
+    message: OTC type must declare version
+
   - ruleId: OTC-FIELD-001
     severity: error
     scope: otc
@@ -109,6 +135,62 @@ rules:
       requireAll: true
     message: Each OTC field must declare description
 
+  - ruleId: OTC-FIELD-004
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: required_field
+    params:
+      path: "/fields/*/required"
+      requireAll: true
+    message: Each OTC field must declare required (boolean)
+
+  - ruleId: OTC-FIELD-005
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/fields/*/required"
+      pattern: "^(true|false)$"
+    message: Each OTC field required must be boolean
+
+  - ruleId: OTC-FIELD-006
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/fields/*/name"
+      pattern: "^[a-z][a-z0-9]*([A-Z][a-z0-9]*)*$"
+    message: OTC field names must be camelCase
+
+  - ruleId: OTC-FIELD-007
+    severity: error
+    scope: otc
+    selector:
+      globs:
+        - "**/types/**/*.{yaml,yml,json}"
+        - "**/catalog/types/**/*.{yaml,yml,json}"
+      documentKind: type
+    assert: pattern_match
+    params:
+      path: "/fields/*/type"
+      pattern: "^(string|number|integer|boolean|object|array|okham\\.[a-z0-9]+(\\.[a-z0-9]+)+)$"
+    message: OTC field type must be a primitive or a namespaced okham.* type id
+
   - ruleId: OTC-ID-001
     severity: error
     scope: otc
@@ -120,8 +202,8 @@ rules:
     assert: pattern_match
     params:
       path: "/id"
-      pattern: "^[a-z0-9]+(\\.[a-z0-9]+)+$"
-    message: OTC type ids must use dotted lowercase format
+      pattern: "^okham\\.[a-z0-9]+(\\.[a-z0-9]+)+$"
+    message: OTC type ids must use okham.* dotted lowercase format
 
   - ruleId: OTC-VERSION-001
     severity: error
@@ -134,5 +216,5 @@ rules:
     assert: pattern_match
     params:
       path: "/version"
-      pattern: "^\\d+\\.\\d+\\.\\d+$"
-    message: OTC type version must be semver (x.y.z)
+      pattern: "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    message: OTC type version must be semantic version
