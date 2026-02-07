@@ -301,16 +301,6 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
-                      "typeId":  "okham.filter",
-                      "versions":  "1.0.0",
-                      "recommended":  true,
-                      "tags":  [
-                                   "core"
-                               ],
-                      "path":  "packages/types/okham.filter/0/type.otc.yaml",
-                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
-                  },
-                  {
                       "typeId":  "okham.fin.money",
                       "versions":  [
                                        "1.0.0"
@@ -335,6 +325,17 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
+                      "typeId":  "okham.list.filter",
+                      "versions":  "1.0.0",
+                      "recommended":  true,
+                      "tags":  [
+                                   "core",
+                                   "list"
+                               ],
+                      "path":  "packages/types/okham.list.filter/1.0.0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
                       "typeId":  "okham.list.meta",
                       "versions":  "1.0.0",
                       "recommended":  true,
@@ -342,6 +343,39 @@
                                    "core"
                                ],
                       "path":  "packages/types/okham.list.meta/0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
+                      "typeId":  "okham.list.pagination",
+                      "versions":  "1.0.0",
+                      "recommended":  true,
+                      "tags":  [
+                                   "core",
+                                   "list"
+                               ],
+                      "path":  "packages/types/okham.list.pagination/1.0.0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
+                      "typeId":  "okham.list.query",
+                      "versions":  "1.0.0",
+                      "recommended":  true,
+                      "tags":  [
+                                   "core",
+                                   "list"
+                               ],
+                      "path":  "packages/types/okham.list.query/1.0.0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
+                      "typeId":  "okham.list.sort",
+                      "versions":  "1.0.0",
+                      "recommended":  true,
+                      "tags":  [
+                                   "core",
+                                   "list"
+                               ],
+                      "path":  "packages/types/okham.list.sort/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
@@ -372,16 +406,6 @@
                                    "core"
                                ],
                       "path":  "packages/types/okham.page.info/0/type.otc.yaml",
-                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
-                  },
-                  {
-                      "typeId":  "okham.pagination",
-                      "versions":  "1.0.0",
-                      "recommended":  true,
-                      "tags":  [
-                                   "core"
-                               ],
-                      "path":  "packages/types/okham.pagination/0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
@@ -436,16 +460,6 @@
                                    "policy"
                                ],
                       "path":  "packages/types/okham.policy.target/0/type.otc.yaml",
-                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
-                  },
-                  {
-                      "typeId":  "okham.query",
-                      "versions":  "1.0.0",
-                      "recommended":  true,
-                      "tags":  [
-                                   "core"
-                               ],
-                      "path":  "packages/types/okham.query/0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
@@ -546,16 +560,6 @@
                                    "core"
                                ],
                       "path":  "packages/types/okham.slug/0/type.otc.yaml",
-                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
-                  },
-                  {
-                      "typeId":  "okham.sort",
-                      "versions":  "1.0.0",
-                      "recommended":  true,
-                      "tags":  [
-                                   "core"
-                               ],
-                      "path":  "packages/types/okham.sort/0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {

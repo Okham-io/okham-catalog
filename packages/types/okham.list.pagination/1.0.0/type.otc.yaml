@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.pagination"
+﻿otc: "0.2.0"
+id: "okham.list.pagination"
 name: "Pagination"
 description: "Canonical pagination parameters for list requests."
 version: "1.0.0"

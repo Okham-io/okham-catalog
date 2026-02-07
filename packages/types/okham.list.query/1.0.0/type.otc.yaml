@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.query"
+﻿otc: "0.2.0"
+id: "okham.list.query"
 name: "Query"
 description: "Canonical query definition with filters and sort order."
 version: "1.0.0"

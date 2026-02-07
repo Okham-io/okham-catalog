@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.filter"
+﻿otc: "0.2.0"
+id: "okham.list.filter"
 name: "Filter"
 description: "Filter condition applied to queries and lists."
 version: "1.0.0"

@@ -1,5 +1,5 @@
-otc: "0.2.0"
-id: "okham.sort"
+﻿otc: "0.2.0"
+id: "okham.list.sort"
 name: "Sort"
 description: "Sort directive applied to a list or query."
 version: "1.0.0"
