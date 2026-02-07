@@ -1,0 +1,15 @@
+otc: "0.2.0"
+id: "okham.user.ref"
+name: "User Reference"
+description: "Reference to a user identity within the system."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "userId"
+    type: "string"
+    required: true
+    description: "Identifier of the user."
+  - name: "displayName"
+    type: "string"
+    required: false
+    description: "Optional display name for the user."

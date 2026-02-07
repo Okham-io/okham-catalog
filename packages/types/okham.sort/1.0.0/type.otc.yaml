@@ -1,0 +1,15 @@
+otc: "0.2.0"
+id: "okham.sort"
+name: "Sort"
+description: "Sort directive applied to a list or query."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "field"
+    type: "string"
+    required: true
+    description: "Field name used for sorting."
+  - name: "direction"
+    type: "string"
+    required: true
+    description: "Sort direction such as asc or desc."

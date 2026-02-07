@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.policy.evidence"
+name: "Policy Evidence"
+description: "Evidence gathered during policy evaluation."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "source"
+    type: "string"
+    required: true
+    description: "Origin of the evidence used in the decision."
+  - name: "value"
+    type: "string"
+    required: true
+    description: "Captured evidence value or summary."
+  - name: "capturedAt"
+    type: "string"
+    required: false
+    description: "Timestamp when evidence was captured."

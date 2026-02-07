@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.page.info"
+name: "Page Info"
+description: "Page information for paginated responses."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "page"
+    type: "integer"
+    required: true
+    description: "Current page index."
+  - name: "pageSize"
+    type: "integer"
+    required: true
+    description: "Number of items per page."
+  - name: "total"
+    type: "integer"
+    required: false
+    description: "Total number of items available."

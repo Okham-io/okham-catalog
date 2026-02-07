@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.result"
+name: "Result"
+description: "Canonical result wrapper describing success or failure outcomes."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "success"
+    type: "boolean"
+    required: true
+    description: "Indicates whether the operation succeeded."
+  - name: "status"
+    type: "okham.status"
+    required: false
+    description: "Status describing the outcome state."
+  - name: "error"
+    type: "okham.error"
+    required: false
+    description: "Error payload when the operation fails."

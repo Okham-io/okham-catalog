@@ -1,0 +1,11 @@
+otc: "0.2.0"
+id: "okham.duration"
+name: "Duration"
+description: "ISO 8601 duration value."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "value"
+    type: "string"
+    required: true
+    description: "Duration encoded as an ISO 8601 duration string."

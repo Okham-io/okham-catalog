@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.package.meta"
+name: "Package Meta"
+description: "Metadata describing a package or module."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "name"
+    type: "string"
+    required: true
+    description: "Package name or identifier."
+  - name: "version"
+    type: "string"
+    required: true
+    description: "Package version string."
+  - name: "description"
+    type: "string"
+    required: false
+    description: "Summary of the package contents."

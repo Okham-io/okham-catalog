@@ -1,0 +1,15 @@
+otc: "0.2.0"
+id: "okham.event.envelope"
+name: "Event Envelope"
+description: "Standard wrapper for event metadata and payload reference."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "meta"
+    type: "okham.event.meta"
+    required: true
+    description: "Canonical metadata for the event."
+  - name: "payloadType"
+    type: "string"
+    required: true
+    description: "Identifier of the payload type carried by the event."

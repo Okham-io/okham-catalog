@@ -1,0 +1,23 @@
+otc: "0.2.0"
+id: "okham.list.meta"
+name: "List Meta"
+description: "Metadata describing a list response and pagination state."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "total"
+    type: "integer"
+    required: false
+    description: "Total number of items available."
+  - name: "page"
+    type: "integer"
+    required: false
+    description: "Current page index for page-based lists."
+  - name: "pageSize"
+    type: "integer"
+    required: false
+    description: "Page size used to produce the list."
+  - name: "hasMore"
+    type: "boolean"
+    required: false
+    description: "Flag indicating more items are available."

@@ -1,0 +1,19 @@
+otc: "0.2.0"
+id: "okham.bundle.manifest"
+name: "Bundle Manifest"
+description: "Manifest listing artifacts in a bundle."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "bundleId"
+    type: "string"
+    required: true
+    description: "Identifier of the bundle."
+  - name: "artifacts"
+    type: "array"
+    required: true
+    description: "Artifacts included in the bundle."
+  - name: "package"
+    type: "okham.package.meta"
+    required: false
+    description: "Package metadata associated with the bundle."

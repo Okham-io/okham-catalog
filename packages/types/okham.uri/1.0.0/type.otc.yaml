@@ -1,0 +1,11 @@
+otc: "0.2.0"
+id: "okham.uri"
+name: "URI"
+description: "Uniform Resource Identifier string."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "value"
+    type: "string"
+    required: true
+    description: "URI value in string form."

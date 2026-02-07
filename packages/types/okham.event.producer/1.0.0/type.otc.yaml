@@ -1,0 +1,15 @@
+otc: "0.2.0"
+id: "okham.event.producer"
+name: "Event Producer"
+description: "Information about the producer of an event."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "capabilityId"
+    type: "string"
+    required: true
+    description: "Identifier of the producing capability."
+  - name: "version"
+    type: "string"
+    required: false
+    description: "Version of the producing capability."
