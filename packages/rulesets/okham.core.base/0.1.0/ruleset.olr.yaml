@@ -27,7 +27,7 @@ rules:
     suggestedFix: Ensure each artifact has a unique id
 
   - ruleId: CORE-ID-003
-    severity: warn
+    severity: error
     scope: global
     selector:
       globs:
@@ -52,7 +52,7 @@ rules:
     suggestedFix: Add a version field to the document
 
   - ruleId: CORE-VERSION-002
-    severity: warn
+    severity: error
     scope: global
     selector:
       globs:
