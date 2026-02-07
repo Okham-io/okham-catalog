@@ -12,7 +12,7 @@ function Put-KVJsonFile {
     [Parameter(Mandatory=$true)][string]$Path
   )
   Write-Host "KV PUT $Key <= $Path"
-  npx wrangler kv:key put $Key --namespace-id $KvNamespaceId --path $Path | Out-Host
+  npx wrangler kv key put $Key --namespace-id $KvNamespaceId --path $Path | Out-Host
 }
 
 function Put-R2File {
