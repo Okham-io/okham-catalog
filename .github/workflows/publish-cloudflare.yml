@@ -1,0 +1,29 @@
+name: publish-catalog-to-cloudflare
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Wrangler v3 is stable for kv:key + r2 object commands.
+      - run: npm i -g wrangler@3.114.17
+
+      - name: Publish seed (rulesets + assertions) to R2 and KV
+        shell: pwsh
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          OKHAM_KV_NAMESPACE_ID: d6a00e47b86d4209a649a2018db40e05
+          OKHAM_R2_BUCKET: okham-catalog
+        run: |
+          ./scripts/publish-cloudflare.ps1 -AccountId $env:CLOUDFLARE_ACCOUNT_ID -KvNamespaceId $env:OKHAM_KV_NAMESPACE_ID -BucketName $env:OKHAM_R2_BUCKET
