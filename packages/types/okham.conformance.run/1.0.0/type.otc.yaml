@@ -1,0 +1,39 @@
+otc: "0.2.0"
+id: "okham.conformance.run"
+name: "Conformance Run"
+description: "Result metadata for executing a conformance suite against a specific engine implementation."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "runId"
+    type: "string"
+    required: true
+    description: "Unique run identifier."
+  - name: "suite"
+    type: "okham.catalog.artifact_ref"
+    required: true
+    description: "Reference to the executed suite artifact."
+  - name: "engineId"
+    type: "string"
+    required: true
+    description: "Engine identifier (e.g., okham-lint-go, okham-lint-node, remote/<name>)."
+  - name: "engineVersion"
+    type: "string"
+    required: true
+    description: "Engine version (semver or build identifier)."
+  - name: "timestamp"
+    type: "string"
+    required: true
+    description: "Run timestamp (RFC3339)."
+  - name: "status"
+    type: "string"
+    required: true
+    description: "Run status: pass|fail|error."
+  - name: "summary"
+    type: "string"
+    required: false
+    description: "Optional short summary."
+  - name: "report"
+    type: "okham.catalog.artifact_ref"
+    required: false
+    description: "Optional reference to a report artifact (e.g., OVR)."

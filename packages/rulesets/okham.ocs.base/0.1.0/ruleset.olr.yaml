@@ -1,0 +1,186 @@
+rulesetId: okham.ocs.base
+version: 0.1.0
+description: Strict baseline lint rules for OCS (Open Conformance Suite) documents
+rules:
+  - ruleId: OCS-REQ-001
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params: { path: "/ocs" }
+    message: OCS suite must declare ocs version
+
+  - ruleId: OCS-REQ-002
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: pattern_match
+    params:
+      path: "/ocs"
+      pattern: "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    message: OCS version must be semantic version
+
+  - ruleId: OCS-REQ-003
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params: { path: "/suiteId" }
+    message: OCS suite must declare suiteId
+
+  - ruleId: OCS-REQ-004
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params: { path: "/target/kind" }
+    message: OCS suite must declare target.kind
+
+  - ruleId: OCS-REQ-005
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: pattern_match
+    params:
+      path: "/target/kind"
+      pattern: "^(olr\\.ruleset|oas\\.assertion|schema)$"
+    message: OCS target.kind must be olr.ruleset|oas.assertion|schema
+
+  - ruleId: OCS-REQ-006
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params: { path: "/target/id" }
+    message: OCS suite must declare target.id
+
+  - ruleId: OCS-REQ-007
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params: { path: "/target/version" }
+    message: OCS suite must declare target.version
+
+  - ruleId: OCS-REQ-008
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: pattern_match
+    params:
+      path: "/target/version"
+      pattern: "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    message: OCS target.version must be semantic version
+
+  - ruleId: OCS-REQ-009
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params: { path: "/cases" }
+    message: OCS suite must declare cases
+
+  - ruleId: OCS-REQ-010
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params: { path: "/cases/0/path" }
+    message: OCS suite must contain at least 1 case
+
+  - ruleId: OCS-CASE-001
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params:
+      path: "/cases/*/path"
+      requireAll: true
+    message: Each OCS case must declare path
+
+  - ruleId: OCS-CASE-002
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_field
+    params:
+      path: "/cases/*/expect"
+      requireAll: true
+    message: Each OCS case must declare expect
+
+  - ruleId: OCS-CASE-003
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: pattern_match
+    params:
+      path: "/cases/*/expect"
+      pattern: "^(pass|fail)$"
+    message: Each OCS case expect must be pass|fail
+
+  - ruleId: OCS-CASE-004
+    severity: error
+    scope: ocs
+    selector:
+      globs:
+        - "**/*.ocs.yaml"
+        - "**/*.ocs.yml"
+      documentKind: conformance_suite
+    assert: required_if
+    params:
+      whenPath: "/cases/*/expect"
+      whenEquals: "fail"
+      path: "/cases/*/expectRuleIds"
+    message: expectRuleIds is required when expect=fail

@@ -182,6 +182,33 @@ function applyRefExists(rule, doc, file, issues, registries) {
 
 function applyRequiredIf(rule, doc, file, issues) {
   const { path: reqPtr, whenPath, whenPattern, whenEquals } = rule.params || {};
+
+  const hasWildcard = String(whenPath).includes('/*') || String(reqPtr).includes('/*');
+  if (hasWildcard) {
+    // Best-effort wildcard support: align matches by index when both pointers use the same wildcard depth.
+    // For OCS we use /cases/*/expect -> /cases/*/expectRuleIds.
+    const gateMatches = getMatches(doc, whenPath);
+    for (const gm of gateMatches) {
+      const v = asString(gm.value);
+      let ok = true;
+      if (whenEquals !== undefined) ok = v === String(whenEquals);
+      else if (whenPattern) ok = new RegExp(whenPattern).test(v);
+      if (!ok) continue;
+
+      // Derive required pointer for same array index when possible
+      // Example: gm.at = /cases/3/expect, reqPtr = /cases/*/expectRuleIds -> /cases/3/expectRuleIds
+      const idxMatch = gm.at.match(/^(.*\/)(\d+)(\/.*)$/);
+      if (!idxMatch) continue;
+      const idx = idxMatch[2];
+      const derivedReq = reqPtr.replace('/*/', `/${idx}/`);
+      const reqMatches = getMatches(doc, derivedReq);
+      if (reqMatches.length === 0) {
+        fail(issues, file, rule.ruleId, rule.severity, rule.message, derivedReq, v);
+      }
+    }
+    return;
+  }
+
   const gate = getMatches(doc, whenPath);
   if (gate.length === 0) return; // condition not present => no requirement
   const v = asString(gate[0].value);

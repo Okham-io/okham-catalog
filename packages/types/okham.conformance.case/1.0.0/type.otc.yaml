@@ -1,0 +1,27 @@
+otc: "0.2.0"
+id: "okham.conformance.case"
+name: "Conformance Case"
+description: "A single conformance test case: an input path and expected outcome."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "path"
+    type: "string"
+    required: true
+    description: "Relative file path to the input."
+  - name: "expect"
+    type: "string"
+    required: true
+    description: "Expected outcome: pass|fail."
+  - name: "expectRuleIds"
+    type: "array"
+    required: false
+    description: "Rule IDs expected to appear in findings (required if expect=fail)."
+  - name: "minFindings"
+    type: "integer"
+    required: false
+    description: "Optional minimum number of findings."
+  - name: "maxFindings"
+    type: "integer"
+    required: false
+    description: "Optional maximum number of findings."

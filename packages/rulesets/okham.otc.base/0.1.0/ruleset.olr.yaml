@@ -256,8 +256,8 @@ rules:
     assert: pattern_match
     params:
       path: "/fields/*/type"
-      pattern: "^(string|number|integer|boolean|object|array|okham\\.[a-z0-9]+(\\.[a-z0-9]+)+)$"
-    message: OTC field type must be a primitive or a namespaced okham.* type id
+      pattern: "^(string|number|integer|boolean|object|array|okham\\.[a-z0-9]+(\\.[a-z0-9_]+)+)$"
+    message: OTC field type must be a primitive or a namespaced okham.* type id (underscore allowed)
 
   - ruleId: OTC-REF-001
     severity: error
@@ -327,8 +327,8 @@ rules:
     assert: pattern_match
     params:
       path: "/id"
-      pattern: "^okham\\.[a-z0-9]+(\\.[a-z0-9]+)+$"
-    message: OTC type ids must use okham.* dotted lowercase format
+      pattern: "^okham\\.[a-z0-9]+(\\.[a-z0-9_]+)+$"
+    message: OTC type ids must use okham.* dotted lowercase format (underscore allowed in segments)
 
   - ruleId: OTC-VERSION-001
     severity: error

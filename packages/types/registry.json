@@ -63,6 +63,42 @@
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
+                      "typeId":  "okham.catalog.artifact_ref",
+                      "tags":  [
+                                   "catalog"
+                               ],
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json",
+                      "path":  "packages/types/okham.catalog.artifact_ref/1.0.0/type.otc.yaml",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  true
+                  },
+                  {
+                      "typeId":  "okham.conformance.case",
+                      "tags":  [
+                                   "conformance"
+                               ],
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json",
+                      "path":  "packages/types/okham.conformance.case/1.0.0/type.otc.yaml",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  true
+                  },
+                  {
+                      "typeId":  "okham.conformance.run",
+                      "tags":  [
+                                   "conformance"
+                               ],
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json",
+                      "path":  "packages/types/okham.conformance.run/1.0.0/type.otc.yaml",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  false
+                  },
+                  {
                       "typeId":  "okham.conformance.suite",
                       "tags":  [
                                    "conformance"

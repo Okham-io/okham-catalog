@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint:otc": "node ./scripts/lint-otc.mjs"
+    "lint:otc": "node ./scripts/lint-otc.mjs",
+    "lint:ocs": "node ./scripts/lint-ocs.mjs",
+    "lint": "npm run lint:otc && npm run lint:ocs"
   },
   "dependencies": {
     "yaml": "^2.8.1"

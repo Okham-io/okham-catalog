@@ -18,8 +18,8 @@ jobs:
       - name: Install lint dependencies
         run: npm ci
 
-      - name: Lint OTC types (okham.otc.base)
-        run: npm run lint:otc
+      - name: Lint catalog (OTC + OCS)
+        run: npm run lint
 
   publish:
     runs-on: ubuntu-latest

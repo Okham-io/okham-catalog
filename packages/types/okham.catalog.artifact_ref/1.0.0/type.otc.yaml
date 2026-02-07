@@ -1,0 +1,27 @@
+otc: "0.2.0"
+id: "okham.catalog.artifact_ref"
+name: "Catalog Artifact Reference"
+description: "Reference to a versioned catalog artifact (kind/id/version/file) addressable on catalog.okham.io."
+version: "1.0.0"
+status: "stable"
+fields:
+  - name: "kind"
+    type: "string"
+    required: true
+    description: "Catalog kind (rulesets|assertions|types|conformance|...)."
+  - name: "id"
+    type: "string"
+    required: true
+    description: "Artifact id (e.g., okham.otc.base)."
+  - name: "version"
+    type: "string"
+    required: true
+    description: "Artifact version (semver)."
+  - name: "file"
+    type: "string"
+    required: true
+    description: "Artifact filename (e.g., ruleset.olr.yaml, suite.ocs.yaml)."
+  - name: "url"
+    type: "string"
+    required: false
+    description: "Optional absolute URL to the artifact (redundant convenience)."
