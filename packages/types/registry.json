@@ -169,9 +169,10 @@
                       "versions":  [
                                        "1.0.0"
                                    ],
-                      "recommended":  true,
+                      "recommended":  false,
                       "tags":  [
-                                   "core"
+                                   "core",
+                                   "legacy"
                                ],
                       "path":  "packages/types/okham.core.locale/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
@@ -181,9 +182,10 @@
                       "versions":  [
                                        "1.0.0"
                                    ],
-                      "recommended":  true,
+                      "recommended":  false,
                       "tags":  [
-                                   "core"
+                                   "core",
+                                   "legacy"
                                ],
                       "path":  "packages/types/okham.core.money/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
@@ -390,6 +392,30 @@
                                    "core"
                                ],
                       "path":  "packages/types/okham.filter/0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
+                      "typeId":  "okham.fin.money",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  true,
+                      "tags":  [
+                                   "fin"
+                               ],
+                      "path":  "packages/types/okham.fin.money/1.0.0/type.otc.yaml",
+                      "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
+                  },
+                  {
+                      "typeId":  "okham.i18n.locale",
+                      "versions":  [
+                                       "1.0.0"
+                                   ],
+                      "recommended":  true,
+                      "tags":  [
+                                   "i18n"
+                               ],
+                      "path":  "packages/types/okham.i18n.locale/1.0.0/type.otc.yaml",
                       "schema":  "https://okham.org/schemas/otc/0.1.0/schema.json"
                   },
                   {
